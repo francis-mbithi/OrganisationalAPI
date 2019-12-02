@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dff27481-c7cd-4bd5-b675-f8d95e3be6d0" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DB/DB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/UserDao.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/ApiException.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/DBRule/DbRule.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/dao/DBRule.java" afterDir="false" />
