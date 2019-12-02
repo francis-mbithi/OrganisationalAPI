@@ -83,4 +83,22 @@ public class User {
     public void setRoles(String roles) {
         this.roles = roles;
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return getDepartmentId() == user.getDepartmentId() &&
+                getUserName().equals(user.getUserName()) &&
+                getAddress().equals(user.getAddress()) &&
+                getPhone().equals(user.getPhone()) &&
+                getEmail().equals(user.getEmail()) &&
+                getPosition().equals(user.getPosition()) &&
+                getRoles().equals(user.getRoles());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getUserName(), getAddress(), getPhone(), getEmail(), getDepartmentId(), getPosition(), getRoles());
+    }
 }

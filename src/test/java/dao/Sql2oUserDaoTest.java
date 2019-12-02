@@ -36,4 +36,17 @@ public class Sql2oUserDaoTest {
         User user = setUpNewUser();
         assertEquals(user.getId(), user.getId());
     }
+
+    @Test
+    public void getAll() {
+        User user = setUpNewUser();
+        assertEquals(true, userDao.getAll().contains(user));
+    }
+
+    @Test
+    public void getAllUsersByDepartment() {
+        User user = setUpNewUser();
+        List<User> allUserByDept = userDao.getAllUsersByDepartment(user.getDepartmentId());
+        assertEquals(user.getDepartmentId(),allUserByDept.get(0).getDepartmentId());
+    }
 }
