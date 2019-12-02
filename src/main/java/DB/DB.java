@@ -6,8 +6,8 @@ public class DB {
 
     // DEVELOPMENT DATABASE
     private static String testConnectionString = "jdbc:postgresql://localhost:5432/org_api_test";
-    private static String testUser = "moringa";
-    private static String testPassword = "c3l12i9f6f6";
+    private static String testUser = "francis";
+    private static String testPassword = "123";
 //    public static Sql2o sql2o = new Sql2o( testConnectionString, testUser, testPassword);// Comment this out if you are testing your app locally
 
     // PRODUCTION DATABASE

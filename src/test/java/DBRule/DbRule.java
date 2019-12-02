@@ -1,4 +1,5 @@
 package DBRule;
+
 import dao.Sql2oDepartmentDao;
 import dao.Sql2oUserDao;
 import org.junit.After;
@@ -16,7 +17,7 @@ public class DbRule extends ExternalResource {
     @Override
     public void before(){
         String connectionString = "jdbc:postgresql://localhost:5432/org_api_test";
-        Sql2o sql2o = new Sql2o(connectionString,"moringa","c3l12i9f6f6" );
+        Sql2o sql2o = new Sql2o(connectionString,"francis","123" );
         userDao = new Sql2oUserDao(sql2o);
         departmentDao = new Sql2oDepartmentDao(sql2o);
         conn = sql2o.open();
