@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dff27481-c7cd-4bd5-b675-f8d95e3be6d0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/dao/Sql2oUserDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dao/Sql2oUserDaoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/ApiException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/DBRule/DbRule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/dao/DBRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Department.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
