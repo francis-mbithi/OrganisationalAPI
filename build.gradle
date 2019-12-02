@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+
+    jcenter()
+}
+
+mainClassName = 'App'
+
+dependencies {
+    compile 'com.sparkjava:spark-core:2.3'
+    compile "com.sparkjava:spark-template-handlebars:2.5.5"
+    compile group: 'org.apache.velocity', name: 'velocity', version: '1.7'
+    compile 'org.slf4j:slf4j-simple:1.7.21'
+    compile group: 'org.sql2o', name: 'sql2o', version: '1.5.4'
+    compile group: 'org.postgresql', name: 'postgresql', version: "9.4-1201-jdbc41"
+    implementation 'com.google.guava:guava:27.0.1-jre'
+    testImplementation 'junit:junit:4.12'
+}
+
+task stage(dependsOn: ['clean', 'installDist'])
