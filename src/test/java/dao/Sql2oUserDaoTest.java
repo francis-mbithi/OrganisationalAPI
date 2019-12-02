@@ -72,7 +72,7 @@ public class Sql2oUserDaoTest {
 
     //helpers
     public User setUpNewUser(){
-        User user = new User("Arnold Oduma","5094","+254-234-093-940","ano@gmail.com",24, "Department head","Networking, Customer relations");
+        User user = new User("afro","4567","+254-234-093-940","afro@gmail.com",24, "Department head","Networking, Customer relations");
         userDao.add(user);
         return user;
     }
