@@ -11,8 +11,8 @@ An application for creating an organisational API outlining the news departments
 ## Endpoint 
 | Method      | Endpoint     | Description  |
 | ------------- |:-------------:| -----:|
-| Post     | /api/v1/users/new| Create new user|
-| Get     | /api/v1/users   |   Retrieve all users in the organisation  |
+| Post     | /api/users/new| Create new user|
+| Get     | /api/users   |   Retrieve all users in the organisation  |
 
 
 ### Create a new user
