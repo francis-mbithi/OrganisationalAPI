@@ -3,20 +3,21 @@ import java.util.Objects;
 
 public class User {
     private int id;
-    private String userName;
+    private String username;
     private String address;
-    private String phone;
+    private int phone;
     private String email;
-    private int departmentId;
+    private int departmentid;
     private String position;
     private String roles;
 
-    public User(String userName, String address, String phone, String email, int departmentId, String position, String roles) {
-        this.userName = userName;
+    public User(int id, String username, String address, int phone, String email, int departmentid, String position, String roles) {
+        this.id = id;
+        this.username = username;
         this.address = address;
         this.phone = phone;
         this.email = email;
-        this.departmentId = departmentId;
+        this.departmentid = departmentid;
         this.position = position;
         this.roles = roles;
     }
@@ -29,13 +30,14 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
+
     public String getAddress() {
         return address;
     }
@@ -44,11 +46,11 @@ public class User {
         this.address = address;
     }
 
-    public String getPhone() {
+    public int getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 
@@ -60,12 +62,12 @@ public class User {
         this.email = email;
     }
 
-    public int getDepartmentId() {
-        return departmentId;
+    public int getDepartmentid() {
+        return departmentid;
     }
 
-    public void setDepartmentId(int departmentId) {
-        this.departmentId = departmentId;
+    public void setDepartmentid(int departmentid) {
+        this.departmentid = departmentid;
     }
 
     public String getPosition() {
@@ -83,22 +85,24 @@ public class User {
     public void setRoles(String roles) {
         this.roles = roles;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof User)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return getDepartmentId() == user.getDepartmentId() &&
-                getUserName().equals(user.getUserName()) &&
-                getAddress().equals(user.getAddress()) &&
-                getPhone().equals(user.getPhone()) &&
-                getEmail().equals(user.getEmail()) &&
-                getPosition().equals(user.getPosition()) &&
-                getRoles().equals(user.getRoles());
+        return id == user.id &&
+                departmentid == user.departmentid &&
+                Objects.equals(username, user.username) &&
+                Objects.equals(address, user.address) &&
+                Objects.equals(phone, user.phone) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(position, user.position) &&
+                Objects.equals(roles, user.roles);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getUserName(), getAddress(), getPhone(), getEmail(), getDepartmentId(), getPosition(), getRoles());
+        return Objects.hash(id, username, address, phone, email, departmentid, position, roles);
     }
 }

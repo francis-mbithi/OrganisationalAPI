@@ -20,8 +20,6 @@ public class App {
 
     public static void main(String[] args) {
 
-        staticFileLocation("/public");
-
         ProcessBuilder process = new ProcessBuilder();
         Integer port;
 
@@ -39,53 +37,6 @@ public class App {
         final String cannotBeEmptyMsg = "Warning!!!, %s cannot be empty!!!, Please try again",cannotBeEmpty;
 
         Gson gson = new Gson();
-
-        //TEMPLATES
-        get("/",(req, res)->{
-            Map<String, Object> model = new HashMap<>();
-            List<News> news = newsDao.getAll();
-            int deptId = 2;
-
-            Department department = departmentDao.findById(deptId);
-            model.put("news", news);
-            model.put("deptId", deptId);
-            model.put("department", department);
-            return new ModelAndView(model, "index.hbs");
-        }, new HandlebarsTemplateEngine());
-        get("/dash",(req, res)->{
-            Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "dash.hbs");
-        }, new HandlebarsTemplateEngine());
-        post("/new/news", (req, res)->{
-            Map<String, Object> model = new HashMap<>();
-            String news = req.queryParams("news");
-            int departmentId = Integer.parseInt(req.queryParams("departmentId"));
-            News newNews = new News(news,departmentId);
-            newsDao.add(newNews);
-            return new ModelAndView(model, "dash.hbs");
-        }, new HandlebarsTemplateEngine());
-        post("/new/user", (req, res) -> {
-            Map<String, Object> model = new HashMap<>();
-            String userName = req.queryParams("userName");
-            String address = req.queryParams("address");
-            String phone = req.queryParams("phone") ;
-            String email = req.queryParams("email");
-            int departmentId = Integer.parseInt(req.queryParams("departmentId"));
-            String position = req.queryParams("position");
-            String roles = req.queryParams("roles");
-            User newUser = new User(userName,address,phone,email,departmentId,position,roles);
-            userDao.add(newUser);
-            return new ModelAndView(model, "dash.hbs");
-        }, new HandlebarsTemplateEngine());
-        post("/new/department",(req, res) -> {
-            Map<String, Object> model = new HashMap<>();
-            String name = req.queryParams("name") ;
-            String description = req.queryParams("description") ;
-            int employees = Integer.parseInt(req.queryParams("employees"));
-            Department newDepartment = new Department(name, description, employees);
-            departmentDao.add(newDepartment);
-            return new ModelAndView(model, "dash.hbs");
-        }, new HandlebarsTemplateEngine());
 
 
         // JSON READ
@@ -114,7 +65,7 @@ public class App {
         // JSON CREATE
         post("/users/new", "application/json", (req, res)->{
             User user = gson.fromJson(req.body(), User.class);
-            if(user == null || user.getUserName() == null){
+            if(user == null || user.getUsername() == null){
                 throw new ApiException(404, String.format(cannotBeEmptyMsg,"User"));
             }
             userDao.add(user);

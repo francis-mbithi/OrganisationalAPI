@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dao.Sql2oNewsDaoTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2019-12-03T06:26:41" hostname="francis-HP-250-G1-Notebook-PC" time="0.713">
+  <properties/>
+  <testcase name="getAllNewsByDepartment" classname="dao.Sql2oNewsDaoTest" time="0.291"/>
+  <testcase name="getAll" classname="dao.Sql2oNewsDaoTest" time="0.042"/>
+  <testcase name="update" classname="dao.Sql2oNewsDaoTest" time="0.066"/>
+  <testcase name="findById" classname="dao.Sql2oNewsDaoTest" time="0.043"/>
+  <testcase name="add" classname="dao.Sql2oNewsDaoTest" time="0.046"/>
+  <testcase name="clearAll" classname="dao.Sql2oNewsDaoTest" time="0.047"/>
+  <testcase name="deleteById" classname="dao.Sql2oNewsDaoTest" time="0.172"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
