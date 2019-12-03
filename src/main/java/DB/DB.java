@@ -1,19 +1,33 @@
 package DB;
 
-import org.sql2o.Sql2o;
-
+import org.sql2o.*;
+import java.net.URI;
+import java.net.URISyntaxException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 public class DB {
+    private static URI dbUri;
+    public static Sql2o sql2o;
+    public static Logger logger = LoggerFactory.getLogger(DB.class);
+    static {
 
-    // DEVELOPMENT DATABASE
-    private static String testConnectionString = "jdbc:postgresql://localhost:5432/org_api";
-    private static String testUser = "francis";
-    private static String testPassword = "123";
-    public static Sql2o sql2o = new Sql2o( testConnectionString, testUser, testPassword);// Comment this out if you are testing your app locally
+        try {
+            if (System.getenv("DATABASE_URL") == null) {
+                dbUri = new URI("postgres://localhost:5432/to_do");
+                sql2o = new Sql2o("jdbc:postgresql://" + "localhost" + ":" + "5432" + "/org_api", "francis", "123");
 
-//    // PRODUCTION DATABASE
-//    private static String connectionString = "jdbc:postgresql://localhost:5432/org_api_test";
-//    private static String user = "francis";
-//    private static String password = "123";
-////    public static Sql2o sql2o = new Sql2o( connectionString, user, password);
+            } else {
+                dbUri = new URI(System.getenv("DATABASE_URL"));
+                int port = dbUri.getPort();
+                String host = dbUri.getHost();
+                String path = dbUri.getPath();
+                String username = (dbUri.getUserInfo() == null) ? null : dbUri.getUserInfo().split(":")[0];
+                String password = (dbUri.getUserInfo() == null) ? null : dbUri.getUserInfo().split(":")[1];
+                sql2o = new Sql2o("jdbc:postgresql://" + host + ":" + port + path, username, password);
+            }
 
+        } catch (URISyntaxException e ) {
+            logger.error("Unable to connect to database.");
+        }
+    }
 }
