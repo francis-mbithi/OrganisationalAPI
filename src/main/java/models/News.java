@@ -5,15 +5,13 @@ import java.util.Objects;
 public class News {
 
     private String news;
-    private int departmentId = -1;
+    private int departmentid;
     private int id;
 
-    public News(String news){
+    public News(String news, int departmentid, int id) {
         this.news = news;
-    }
-    public News(String news, int departmentId){
-        this.news = news;
-        this.departmentId = departmentId;
+        this.departmentid = departmentid;
+        this.id = id;
     }
 
     public String getNews() {
@@ -24,12 +22,12 @@ public class News {
         this.news = news;
     }
 
-    public int getDepartmentId() {
-        return departmentId;
+    public int getDepartmentid() {
+        return departmentid;
     }
 
-    public void setDepartmentId(int departmentId) {
-        this.departmentId = departmentId;
+    public void setDepartmentid(int departmentid) {
+        this.departmentid = departmentid;
     }
 
     public int getId() {
@@ -43,15 +41,15 @@ public class News {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof News)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         News news1 = (News) o;
-        return getDepartmentId() == news1.getDepartmentId() &&
-                getId() == news1.getId() &&
-                getNews().equals(news1.getNews());
+        return departmentid == news1.departmentid &&
+                id == news1.id &&
+                Objects.equals(news, news1.news);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNews(), getDepartmentId(), getId());
+        return Objects.hash(news, departmentid, id);
     }
 }

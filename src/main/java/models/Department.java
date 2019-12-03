@@ -4,31 +4,24 @@ import java.util.Objects;
 
 public class Department {
 
-    private String departmentName;
+    private String departmentname;
     private String description;
-    private int totalEmployees;
+    private int totalemployees;
     private int id;
 
-    public Department(String departmentName, String description, int totalEmployees){
-        this.departmentName = departmentName;
+    public Department(String departmentname, String description, int totalemployees, int id) {
+        this.departmentname = departmentname;
         this.description = description;
-        this.totalEmployees = totalEmployees;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
+        this.totalemployees = totalemployees;
         this.id = id;
     }
 
-    public String getDepartmentName() {
-        return departmentName;
+    public String getDepartmentname() {
+        return departmentname;
     }
 
-    public void setDepartmentName(String departmentName) {
-        this.departmentName = departmentName;
+    public void setDepartmentname(String departmentname) {
+        this.departmentname = departmentname;
     }
 
     public String getDescription() {
@@ -39,12 +32,20 @@ public class Department {
         this.description = description;
     }
 
-    public int getTotalEmployees() {
-        return totalEmployees;
+    public int getTotalemployees() {
+        return totalemployees;
     }
 
-    public void setTotalEmployees(int totalEmployees) {
-        this.totalEmployees = totalEmployees;
+    public void setTotalemployees(int totalemployees) {
+        this.totalemployees = totalemployees;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
@@ -52,13 +53,13 @@ public class Department {
         if (this == o) return true;
         if (!(o instanceof Department)) return false;
         Department that = (Department) o;
-        return getTotalEmployees() == that.getTotalEmployees() &&
-                Objects.equals(getDepartmentName(), that.getDepartmentName()) &&
+        return getTotalemployees() == that.getTotalemployees() &&
+                Objects.equals(getDepartmentname(), that.getDepartmentname()) &&
                 Objects.equals(getDescription(), that.getDescription());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getDepartmentName(), getDescription(), getTotalEmployees());
+        return Objects.hash(getDepartmentname(), getDescription(), getTotalemployees());
     }
 }

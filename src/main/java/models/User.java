@@ -22,6 +22,7 @@ public class User {
         this.roles = roles;
     }
 
+
     public int getId() {
         return id;
     }
@@ -92,10 +93,10 @@ public class User {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return id == user.id &&
+                phone == user.phone &&
                 departmentid == user.departmentid &&
                 Objects.equals(username, user.username) &&
                 Objects.equals(address, user.address) &&
-                Objects.equals(phone, user.phone) &&
                 Objects.equals(email, user.email) &&
                 Objects.equals(position, user.position) &&
                 Objects.equals(roles, user.roles);

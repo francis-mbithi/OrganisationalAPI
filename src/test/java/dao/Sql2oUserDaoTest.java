@@ -46,8 +46,8 @@ public class Sql2oUserDaoTest {
     @Test
     public void getAllUsersByDepartment() {
         User user = setUpNewUser();
-        List<User> allUserByDept = userDao.getAllUsersByDepartment(user.getDepartmentId());
-        assertEquals(user.getDepartmentId(), allUserByDept.get(0).getDepartmentId());
+        List<User> allUserByDept = userDao.getAllUsersByDepartment(user.getDepartmentid());
+        assertEquals(user.getDepartmentid(), allUserByDept.get(0).getDepartmentid());
     }
 
     @Test
@@ -73,7 +73,8 @@ public class Sql2oUserDaoTest {
 
     //helpers
     public User setUpNewUser() {
-        User user = new User("frank", "123", "+254-234-093-940", "@gmail.com", 24, "Department head", "Networking, Customer relations");
+//        User user = new User(1, "frak", "fr@gmail.com", 123, "f@gmail.com", 1, "it");
+        User user = new User(1, "fr", "f@gmail.com" ,123, "fr@gmail.com" ,1 ,"Mgr" ,"Manager");
         userDao.add(user);
         return user;
     }

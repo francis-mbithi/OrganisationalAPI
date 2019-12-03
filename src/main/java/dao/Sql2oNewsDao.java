@@ -15,7 +15,7 @@ public class Sql2oNewsDao implements NewsDao {
 
     @Override
     public void add(News news) {
-        String sql = "INSERT INTO news (news, departmentId) VALUES (:news, :departmentId) ";
+        String sql = "INSERT INTO news (news, departmentid) VALUES (:news, :departmentid) ";
         try (Connection conn = sql2o.open()){
             int id = (int) conn.createQuery(sql, true)
                     .bind(news)
@@ -36,11 +36,11 @@ public class Sql2oNewsDao implements NewsDao {
     }
 
     @Override
-    public List<News> getAllNewsByDepartment(int departmentId) {
-        String sql = "SELECT * FROM news WHERE departmentId=:departmentId";
+    public List<News> getAllNewsByDepartment(int departmentid) {
+        String sql = "SELECT * FROM news WHERE departmentid=:departmentid";
         try (Connection conn = sql2o.open()){
             return conn.createQuery(sql)
-                    .addParameter("departmentId", departmentId)
+                    .addParameter("departmentid", departmentid)
                     .throwOnMappingFailure(false)
                     .executeAndFetch(News.class);
         }
@@ -57,13 +57,13 @@ public class Sql2oNewsDao implements NewsDao {
     }
 
     @Override
-    public void update(int id, String news, int departmentId) {
-        String sql = "UPDATE news SET (news, departmentId) = (:news, :departmentId) WHERE id=:id";
+    public void update(int id, String news, int departmentid) {
+        String sql = "UPDATE news SET (news, departmentid) = (:news, :departmentid) WHERE id=:id";
         try (Connection conn = sql2o.open()){
             conn.createQuery(sql,true)
                     .addParameter("id", id)
                     .addParameter("news", news)
-                    .addParameter("departmentId", departmentId)
+                    .addParameter("departmentid", departmentid)
                     .throwOnMappingFailure(false)
                     .executeUpdate();
         }

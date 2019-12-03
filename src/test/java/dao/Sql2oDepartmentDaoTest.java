@@ -61,7 +61,7 @@ public class Sql2oDepartmentDaoTest {
 
     //helper
     public Department setUpDepartment(){
-        Department department = new Department("Information Technology","This department takes care of IT related issues",2);
+        Department department = new Department("finance","finance", 5, 2);
         departmentDao.add(department);
         return department;
     }

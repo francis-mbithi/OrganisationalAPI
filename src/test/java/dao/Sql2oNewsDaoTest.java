@@ -48,8 +48,8 @@ public void add() {
     @Test
     public void getAllNewsByDepartment() {
         News news = setUpNews();
-        List<News> allNewsByDept = newsDao.getAllNewsByDepartment(news.getDepartmentId());
-        assertEquals(news.getDepartmentId(),allNewsByDept.get(0).getDepartmentId());
+        List<News> allNewsByDept = newsDao.getAllNewsByDepartment(news.getDepartmentid());
+        assertEquals(news.getDepartmentid(),allNewsByDept.get(0).getDepartmentid());
 
     }
 
@@ -84,7 +84,8 @@ public void add() {
 
     //helper
     public News setUpNews(){
-        News news = new News("Collection of Dividents",2);
+        //News news = new News("Collection of Dividents",2);
+        News news = new News("Rains", 2, 1);
         newsDao.add(news);
         return news;
     }
