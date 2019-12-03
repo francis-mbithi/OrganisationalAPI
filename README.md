@@ -4,13 +4,30 @@ Francis Mbithi
 #### App Description
 An application for creating an organisational API outlining the news departments and users
 #### Technologies and frameworks used
-1. java 11
-2. spark core 2.12
-3. Gradle 4.10
-5. Junit 4
-6. Postgres database
-7. Postman
+* java 11
+* spark 
+* Postgres database
+* Postman
+## Endpoint 
+| Method      | Endpoint     | Description  |
+| ------------- |:-------------:| -----:|
+| Post     | /api/v1/users/new| Create new user|
+| Get     | /api/v1/users   |   Retrieve all users in the organisation  |
 
+
+### Create a new user
+```
+{
+id: 1,
+username: "vrk",
+address: "03",
+phone: 107567673,
+email: "f@gmail.com",
+departmentid: 02,
+position: "manager",
+roles: "IT"
+}
+```
 #### Database setup.
 In PSQL:
 in psql:
