@@ -38,8 +38,6 @@ public class App {
 
         Gson gson = new Gson();
 
-
-        // JSON READ
         get("/users", "application/json",(req, res) -> {
             if(userDao.getAll().size() < 1){
                 throw new ApiException(404, String.format(notAvailableMsg,"Users"));
@@ -62,7 +60,7 @@ public class App {
             return gson.toJson(departmentDao.getAll());
         });
 
-        // JSON CREATE
+
         post("/users/new", "application/json", (req, res)->{
             User user = gson.fromJson(req.body(), User.class);
             if(user == null || user.getUsername() == null){
